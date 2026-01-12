@@ -79,7 +79,6 @@ int ll_insert_head(LinkedList *ll, double value) {
     Node *new_node = malloc(sizeof(Node));
 
     if (!new_node) {
-        printf("Error: Node allocation failed.\n");
         return -1;
     }
 
@@ -104,7 +103,6 @@ int ll_insert_tail(LinkedList *ll, double value) {
     Node *new_node = malloc(sizeof(Node));
 
     if (!new_node) {
-        printf("Error: Node allocation failed.\n");
         return -1;
     }
 
@@ -141,7 +139,6 @@ int ll_insert_at(LinkedList *ll, double value, size_t index) {
     Node *new_node = malloc(sizeof(Node));
 
     if (!new_node) {
-        printf("Error: Node allocation failed.\n");
         return -1;
     }
 
