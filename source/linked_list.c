@@ -21,7 +21,6 @@ LinkedList *ll_create() {
     LinkedList *ll = malloc(sizeof(LinkedList));
 
     if (!ll) {
-        printf("Error: Linked list allocation failed.\n");
         return NULL;
     }
 
@@ -37,7 +36,6 @@ LinkedList *ll_create() {
  */
 int ll_free(LinkedList *ll) {
     if (!ll) {
-        printf("Error: Linked list is NULL.\n");
         return -1;
     }
 
@@ -61,7 +59,6 @@ int ll_free(LinkedList *ll) {
  */
 Node* ll_at(LinkedList *ll, size_t index) {
     if (index >= ll->size) {
-        printf("Error: Index out of bounds.\n");
         return NULL;
     }
 
@@ -163,7 +160,6 @@ int ll_insert_at(LinkedList *ll, double value, size_t index) {
  */
 int ll_remove_head(LinkedList *ll) {
     if (!ll->head) {
-        printf("Error: Head node is NULL.\n");
         return -1;
     }
 
@@ -186,7 +182,6 @@ int ll_remove_head(LinkedList *ll) {
  */
 int ll_remove_tail(LinkedList *ll) {
     if (ll->size == 0) {
-        printf("Error: Linked list is empty.\n");
         return -1;
     }
 
@@ -211,7 +206,6 @@ int ll_remove_tail(LinkedList *ll) {
  */
 int ll_remove_at(LinkedList *ll,size_t index) {
     if (!ll->head) {
-        printf("Error: Linked list is empty.\n");
         return -1;
     }
 
@@ -227,7 +221,6 @@ int ll_remove_at(LinkedList *ll,size_t index) {
     Node *current = ll_at(ll, index - 1);
 
     if (!current || !current->next) {
-        printf("Error: Node not found at given index.\n");
         return -1;
     }
 
