@@ -19,14 +19,12 @@ Stack *s_create() {
     Stack *s = malloc(sizeof(Stack));
 
     if (!s) {
-        printf("Error: Stack allocation failed.\n");
         return NULL;
     }
 
     s->data = malloc(DEFAULT_SIZE * sizeof(double));
 
     if (!s->data) {
-        printf("Error: Data allocation failed.\n");
         free(s);    // Clean up the struct if the array allocation fails
         return NULL;
     }
@@ -42,7 +40,6 @@ Stack *s_create() {
  */
 int s_free(Stack *s) {
     if (!s) {
-        printf("Error: Stack is NULL.\n");
         return -1;
     }
 
@@ -62,7 +59,6 @@ int s_free(Stack *s) {
  */
 int s_resize(Stack *s) {
     if (!s) {
-        printf("Error: Stack is NULL.\n");
         return -1;
     }
 
@@ -72,7 +68,6 @@ int s_resize(Stack *s) {
     double *buffer = realloc(s->data, new_capacity * sizeof(double));
 
     if (buffer == NULL) {
-        printf("Error: Buffer allocation failed.\n");
         return -1;
     }
 
@@ -88,14 +83,12 @@ int s_resize(Stack *s) {
  */
 int s_push(Stack *s, double value) {
     if (!s) {
-        printf("Error: Stack is NULL.\n");
         return -1;
     }
 
     // Check if the stack is full
     if (s->top >= s->capacity) {
         if (s_resize(s) != 0) {
-            printf("Error: Stack overflow.\n");
             return -1;
         }
     }
@@ -112,12 +105,10 @@ int s_push(Stack *s, double value) {
  */
 double s_pop(Stack *s) {
     if (!s) {
-        printf("Error: Stack is NULL.\n");
         return NAN;
     }
 
     if (s->top == 0) {
-        printf("Error: Stack is already empty.\n");
         return NAN;
     }
 
@@ -130,12 +121,10 @@ double s_pop(Stack *s) {
  */
 double s_peek(Stack *s) {
     if (!s) {
-        printf("Error: Stack is NULL.\n");
         return NAN;
     }
 
     if (s->top == 0) {
-        printf("Notice: Stack is already empty.\n");
         return NAN;
     }
 
@@ -159,6 +148,5 @@ int s_print(Stack *s) {
         return 0;
     }
 
-    printf("Error: Unable to print stack.\n");
     return -1;
 }
